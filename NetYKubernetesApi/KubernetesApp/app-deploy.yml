@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deploy
+  namespace: app
+  labels:
+    name: app-deploy
+    app: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: appInmueble
+      type: netapiInmueble
+  template:
+    metadata:
+      name: app-pod
+      namespace: app
+      labels:
+        name: appInmueble
+        type: netapiInmueble
+    spec:
+      containers:
+      - name: app-api
+        image: jnino2707/prueba:v1.0
+        ports:
+          - containerPort: 5000
+        env:
+          - name: ConnectionStrings__SQLServerConnection
+            value: Data Source=mssql-service; Initial Catalog=DBPRUEBA; User Id=sa;password=Aqui la contraseña;Trust Server Certificate=true
+
+        
