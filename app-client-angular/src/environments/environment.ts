@@ -15,7 +15,7 @@ export const environment = {
       appId: "1:121295648444:web:cbb571b0d5e6a7151342b9"
     }
   },
-  url: 'http://localhost:5000/'
+  url: 'http://localhost:80/'
 };
 
 /*
